@@ -1,0 +1,48 @@
+
+.topics{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+   
+}
+.card{
+    margin: 20px;
+}
+
+.username{
+    border-left: 2px outset black;
+}
+
+.post-link{
+    color: dodgerblue;
+    transition: color 650ms;
+}
+
+.post-link:hover, .post-link:active{
+text-decoration: none;
+color: blueviolet;
+}
+
+.icon-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    align-items: center;
+
+}
+
+
+.icon-container i{
+    align-items: center;
+    color: rgb(131, 10, 10);
+    font-size: 3rem;
+    margin: 0 auto;
+    transition: color 650ms;
+}
+
+.icon-container i:hover{
+    color: red;
+}

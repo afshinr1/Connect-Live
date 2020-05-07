@@ -1,0 +1,24 @@
+<%- include ('../_partials/_header.ejs') -%>
+<div class="topics">
+        <%let data = JSON.parse(topics); 
+        let allImages = JSON.parse(images);
+      
+        data.forEach(topic => {
+        var name = topic.topic_name;
+        var desc = topic.topic_description;
+        var id = topic.topic_id;
+        let image = allImages[Math.floor(Math.random()*allImages.length)];
+        %>
+    <div class="card" style="width: 20rem;">
+        <img src="<%=image.image%>" class="card-img-top" alt="image1">
+        <div class="card-body">
+          <h5 class="card-title" id="topic_name"><%=name%></h5>
+          <p class="card-text"><%=desc%></p>
+          <a href="/TopicsPage/<%=topic.topic_id %>" class="btn btn-success"> View Topic</a>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+
+    <%- include ('../_partials/_footer.ejs') -%>

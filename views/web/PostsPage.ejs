@@ -1,0 +1,38 @@
+<%- include ('../_partials/_header.ejs') -%>
+
+
+
+
+<div class="container">
+    <div class="p-3 mb-2 bg-light text-dark">
+
+ <% let allPosts=JSON.parse(posts); 
+
+allPosts.forEach((post)=>{
+    
+    %>    
+    <div class='alert alert-dark row mt-4'>
+        <div class="col-6 col-md-8">
+            <h1> <a href="#" class='post-link'><%=post.title%></a></h1> 
+            <h5><%=post.description%></h5>
+        </div>
+        <div class="col col-md-2 align-self-center username">
+            <h4><%=post.username%></h4>
+        </div>
+        <div class="col col-md-2 align-self-center icon-container">
+         <a href="#"> <i class="fas fa-heart"></i></a>  
+         <h5><%=post.votes%></h5>
+
+        </div>
+    </div>
+
+<%
+});
+%>
+    </div>
+</div>
+
+
+
+
+<%- include ('../_partials/_footer.ejs') -%>
