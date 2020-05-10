@@ -28,6 +28,7 @@ connection.query('SELECT * FROM posts WHERE topic_id=?',[id], (error, results, f
     });
 });
 }
+
 let getImages = ()=>{
     console.log('get images');
     let images;
@@ -42,6 +43,40 @@ let getImages = ()=>{
 
 }
 
+let createTopic = (title, desc, username) =>{
+    console.log('in create topic');
+ return new Promise((resolve, reject)=>{
+     
+    let sql = 'INSERT INTO topics (topic_name, topic_description) VALUES (?, ?)';
+    connection.query(sql, [title, desc ], (error, result)=>{
+        console.log('1 record successfully inserted');
+        resolve();
+    });
+
+ });
+}
+
+let search = (searchVal)=>{
+    return new Promise((resolve, reject)=>{
+        console.log('in search topics');
+        console.log(searchVal);
+        let data;
+        connection.query('SELECT * FROM topics WHERE topic_name=?', [searchVal], (error, results, fields)=>{
+        data = results;
+
+        if(data){
+            console.log(data);
+            resolve(data);
+        } 
+    
+        else reject('something went wrong get topics');
+        });
+
+    });
+};
+
 module.exports.topics = getTopics;
 module.exports.topicPosts = getTopicPosts;
 module.exports.images = getImages;
+module.exports.createTopic = createTopic;
+module.exports.search = search;

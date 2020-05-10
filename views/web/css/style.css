@@ -1,4 +1,9 @@
 
+body{
+    background-color: blue;
+
+}
+
 .topics{
     display: flex;
     flex-direction: row;
@@ -31,13 +36,14 @@ color: blueviolet;
     justify-content: space-evenly;
     margin: 0 auto;
     align-items: center;
+    text-align: center;
 
 }
 
 
 .icon-container i{
     align-items: center;
-    color: rgb(131, 10, 10);
+    color: black;
     font-size: 3rem;
     margin: 0 auto;
     transition: color 650ms;
@@ -45,4 +51,88 @@ color: blueviolet;
 
 .icon-container i:hover{
     color: red;
+}
+
+.icon-container h5{
+    color: black;
+}
+
+.post h4{
+ font-style: italic;
+}
+.post{
+    text-align: center;
+
+}
+
+.your-comment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.your-comment form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.your-comment button{
+    width: 15rem;
+}
+.your-comment textarea{
+    width: 30rem;
+    height: 15rem;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 7rem;   
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    position: absolute;;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  width: 100%;
+  height: 4rem;           
+    text-align: center;
+}
+
+
+#footer h1{
+    color: whitesmoke;
+    margin-top: 8px;
+}
+
+.first{
+    text-align: center;
+}
+
+.btn-reply{
+float: right;
+
+text-transform: uppercase;
+margin-top: 0.5rem;
+background-image: linear-gradient(to right,purple, silver);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: white;
+height: 3rem;
+width: 5rem;
+transition: color 650ms;
+}
+
+.btn-reply:hover{
+    background-image: linear-gradient(to right,blue, white);
+    color: yellow;
+}
+
+.reply-form{
+display: flex;
+justify-content: flex-end;
 }

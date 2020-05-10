@@ -1,0 +1,121 @@
+<%- include ('../_partials/_header.ejs') -%>
+
+
+</ul>
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+</nav>
+
+<div id="page-container">
+  <div id="content-wrap">
+
+<div class="postInfo">
+
+<div class="container">
+<% let parentComment = JSON.parse(parent);
+    let allComments  = JSON.parse(comments);
+  //console.log(allComments);
+    %>
+
+
+    <div class = "comment-info mt-4 mb-4 bg-white">
+        <div class="post">
+            <div class="jumbotron jumbotron-fluid">
+                <h4><%=parentComment[0].username%> <small><i>Posted on <%=parentComment[0].date_posted%></i></small></h4>
+                <h1><%=parentComment[0].title %> </h1>      
+                  <p><%=parentComment[0].description%></p>
+            
+            </div>
+
+        </div>
+    </div>
+    <hr style="height: 0.1rem; background: black;">
+
+
+
+    <!--Comment section-->
+    <%
+      let id = 0;
+    allComments.forEach((comment)=>{
+      let comment_uuid = comment.uuid;
+        id++;
+        if(comment.parent_uuid === parentComment[0].uuid){
+        %>
+    <div class="media border p-3 mt-4 mb-4 bg-light row">
+        <img src="/web/images/avatar1.png" alt="" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+        <div class="media-body">
+          <button class='btn-reply' data-toggle="modal" data-target="#comment<%=id%>">Reply</button> 
+
+          <div class="modal fade" id="comment<%=id%>" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Reply to Comment</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="/Post/<%=parentComment[0].uuid%>/<%=comment.uuid%>/create" method="POST">
+               
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Insert Reply</label>
+                      <textarea class="form-control" name="comm"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                  </form>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          <h4><%=comment.username%> <small><i>Posted on <%=comment.date_posted%></i></small></h4>
+          
+          <p><%=comment.comment_content%></p>
+            <%allComments.forEach((nestedComment)=>{
+                if(nestedComment.parent_uuid == comment.uuid){
+            %>
+          
+          <div class="media p-3">
+            <img src="/web/images/avatar2.png" alt="" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+            <div class="media-body">
+              <h4><%=nestedComment.username%> <small><i>Posted on <%=nestedComment.date_posted%></i></small></h4>
+              
+              <p><%=nestedComment.comment_content%></p>
+            </div>
+          </div> 
+          <% 
+        }
+        });%>
+        </div>
+      </div>
+      
+      
+      <%} }); %>
+
+      <!--Your comment-->
+      <div class="your-comment">
+      <med><i>Leave a comment!</i></med>
+      <form action="/Post/<%=parentComment[0].uuid%>/<%=parentComment[0].uuid%>/create" method="POST">
+        <textarea placeholder="Enter your comment here" name="comm"></textarea>
+        <button class="btn btn-success">Submit</button>
+      </form>
+      </div>
+
+</div>
+
+
+
+
+
+</div>
+
+<%- include ('../_partials/_footer.ejs') -%>
