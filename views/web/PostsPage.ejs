@@ -19,7 +19,14 @@
 
 <div class="container">
     <div class="p-3 mb-2 bg-light text-dark">
-
+      <div class="heading-message">
+        <%if(postMessage){ %>
+          <h4><%=postMessage%></h4>
+          <%} %>
+   
+    
+      </div>
+  
  <% let allPosts=JSON.parse(posts); 
     let topicid = topicID;
     if(allPosts.length >= 1){
@@ -65,15 +72,15 @@ allPosts.forEach((post)=>{
           <form method="POST" action="./<%=topicID%>/createPost">
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">Post Title</label>
-              <input type="text" class="form-control" name="title">
+              <input type="text" id="newPostTitle" class="form-control" name="title">
             </div>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Description</label>
-              <textarea class="form-control" name="description"></textarea>
+              <label for="message-text"  class="col-form-label">Description</label>
+              <textarea class="form-control" id="newPostDesc" name="description"></textarea>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Create Post</button>
+                <button type="submit" class="btn btn-primary" onclick=" return emptyPost()">Create Post</button>
               </div>
           </form>
         </div>

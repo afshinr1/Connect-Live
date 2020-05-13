@@ -1,86 +1,81 @@
-
-body{
-    background-color: blue;
-
+body {
+  background-color: blue;
 }
 
-.topics{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: space-evenly;
-   
+.topics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-evenly;
 }
-.card{
-    margin: 20px;
-}
-
-.username{
-    border-left: 2px outset black;
+.card {
+  margin: 20px;
 }
 
-.post-link{
-    color: dodgerblue;
-    transition: color 650ms;
+.username {
+  border-left: 2px outset black;
 }
 
-.post-link:hover, .post-link:active{
-text-decoration: none;
-color: blueviolet;
+.post-link {
+  color: dodgerblue;
+  transition: color 650ms;
 }
 
-.icon-container{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    align-items: center;
-    text-align: center;
-
+.post-link:hover,
+.post-link:active {
+  text-decoration: none;
+  color: blueviolet;
 }
 
-
-.icon-container i{
-    align-items: center;
-    color: black;
-    font-size: 3rem;
-    margin: 0 auto;
-    transition: color 650ms;
+.icon-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
 }
 
-.icon-container i:hover{
-    color: red;
+.icon-container i {
+  align-items: center;
+  color: black;
+  font-size: 3rem;
+  margin: 0 auto;
+  transition: color 650ms;
 }
 
-.icon-container h5{
-    color: black;
+.icon-container i:hover {
+  color: red;
 }
 
-.post h4{
- font-style: italic;
-}
-.post{
-    text-align: center;
-
+.icon-container h5 {
+  color: black;
 }
 
-.your-comment{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.post h4 {
+  font-style: italic;
 }
-.your-comment form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.post {
+  text-align: center;
 }
-.your-comment button{
-    width: 15rem;
+
+.your-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.your-comment textarea{
-    width: 30rem;
-    height: 15rem;
+.your-comment form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.your-comment button {
+  width: 15rem;
+}
+.your-comment textarea {
+  width: 30rem;
+  height: 15rem;
 }
 
 #page-container {
@@ -89,50 +84,89 @@ color: blueviolet;
 }
 
 #content-wrap {
-  padding-bottom: 7rem;   
+  padding-bottom: 7rem;
 }
 
 #footer {
-    display: flex;
-    justify-content: center;
-    position: absolute;;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  height: 4rem;           
-    text-align: center;
+  height: 4rem;
+  text-align: center;
+}
+
+#footer h1 {
+  color: whitesmoke;
+  margin-top: 8px;
+}
+
+.first {
+  text-align: center;
+}
+
+.btn-reply {
+  float: right;
+
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  background-image: linear-gradient(to right, purple, silver);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+  height: 3rem;
+  width: 5rem;
+  transition: color 650ms;
+}
+
+.btn-reply:hover {
+  background-image: linear-gradient(to right, blue, white);
+  color: yellow;
+}
+
+.reply-form {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heading-message{
+  text-emphasis: bold;
+  text-align: center;
+  margin-top: 10px;
+  color: green;
+}
+.nav{
+  list-style: none;
+}
+
+.navigation{
+  display: flex;
+  list-style: none;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 
-#footer h1{
-    color: whitesmoke;
-    margin-top: 8px;
+.nav-item{
+padding-left: 1rem;
 }
 
-.first{
-    text-align: center;
+
+
+.nav-link{
+  font-family: cursive;
+text-transform: initial;
+  text-decoration: none;
+  color: white;
+  font-weight: 100;
+  transition: color 650ms;
+
 }
+.nav-link:hover{
+  color: greenyellow;
 
-.btn-reply{
-float: right;
-
-text-transform: uppercase;
-margin-top: 0.5rem;
-background-image: linear-gradient(to right,purple, silver);
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-color: white;
-height: 3rem;
-width: 5rem;
-transition: color 650ms;
-}
-
-.btn-reply:hover{
-    background-image: linear-gradient(to right,blue, white);
-    color: yellow;
-}
-
-.reply-form{
-display: flex;
-justify-content: flex-end;
+  
 }

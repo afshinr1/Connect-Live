@@ -14,8 +14,19 @@
 
 <div id="page-container">
   <div id="content-wrap">
+    <div class="heading-message">
+      <%if(loginMessage){ %>
+        <h4><%=loginMessage%></h4>
+        <%} %>
+        <%if(topicMessage){ %>
+          <h4><%=topicMessage%></h4>
+          <%} %>
+  
+    </div>
 
 <div class="topics">
+
+  
         <%let data = JSON.parse(topics); 
         let allImages = JSON.parse(images);
       
@@ -52,15 +63,15 @@
             <form method="POST" action="/TopicsPage/createTopic">
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Topic Title</label>
-                <input type="text" class="form-control" name="title">
+                <input type="text" id="newTopicTitle" class="form-control" name="title">
               </div>
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Description</label>
-                <textarea class="form-control" name="description"></textarea>
+                <textarea class="form-control" id="newTopicDesc" name="description"></textarea>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Create Topic</button>
+                  <button type="submit" class="btn btn-primary" onclick="return emptyTopic()">Create Topic</button>
                 </div>
             </form>
           </div>

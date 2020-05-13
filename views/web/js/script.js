@@ -23,3 +23,27 @@ const connection = require("../../../connection");
     }
 
 }
+
+
+function emptyPost(){
+let title = document.querySelector('#newPostTitle').value;
+let desc = document.querySelector('#newPostDesc').value;
+
+if(title === "" || desc === ""){
+  alert('Please fill all the fields');
+  return false;
+
+}
+}
+
+
+function emptyTopic(){
+  let title = document.querySelector('#newTopicTitle').value;
+  let desc = document.querySelector('#newTopicDesc').value;
+  
+  if(title === "" || desc === ""){
+    alert('Please fill all the fields');
+    return false;
+  
+  }
+  }
